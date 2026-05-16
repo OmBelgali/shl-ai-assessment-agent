@@ -47,3 +47,16 @@ Example request:
   ]
 }
 ```
+---
+
+### Deployment
+Hosted on Render.
+
+---
+
+### Local Setup
+```bash
+pip install -r requirements.txt
+python embeddings.py
+python -m uvicorn app:app --reload
+```
