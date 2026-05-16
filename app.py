@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
 import chromadb
-from sentence_transformers import SentenceTransformer
+# from sentence_transformers import SentenceTransformer
 from groq import Groq
 from dotenv import load_dotenv
 import os
@@ -31,7 +31,7 @@ client = chromadb.PersistentClient(path="./vector_store")
 
 collection = client.get_collection("shl_assessments")
 
-embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+# embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 # -----------------------------
 # REQUEST SCHEMAS
@@ -134,11 +134,11 @@ def retrieve_assessments(query, top_k=3):
             keywords.append(word)
 
     # Vector search
-    query_embedding = embedding_model.encode(query).tolist()
+    # query_embedding = embedding_model.encode(query).tolist()
 
     results = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=20
+        query_texts=[query],
+        n_results=top_k
     )
 
     filtered = []
