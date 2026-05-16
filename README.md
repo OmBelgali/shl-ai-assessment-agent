@@ -3,24 +3,47 @@
 AI-powered conversational recommendation system for SHL assessments.
 
 ## Features
-- Conversational recommendations
-- SHL catalog retrieval
-- ChromaDB semantic search
+
+- Conversational assessment recommendations
+- Multi-turn conversation handling
+- Semantic retrieval using ChromaDB
 - FastAPI backend
 - Groq LLM integration
+- Comparison support
+- Clarification handling
+- Off-topic refusal handling
+
+---
+
+## Tech Stack
+
+- FastAPI
+- ChromaDB
+- Sentence Transformers
+- Groq API
+- Python
+
+---
 
 ## API Endpoints
 
 ### Health Check
+
 GET /health
 
 ### Chat Endpoint
+
 POST /chat
 
-## Run Locally
+Example request:
 
-```bash
-pip install -r requirements.txt
-python embeddings.py
-python -m uvicorn app:app --reload
+```json
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hiring Java developer"
+    }
+  ]
+}
 ```
